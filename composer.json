@@ -1,0 +1,27 @@
+{
+    "name": "user/blogcomposer",
+    "scripts": {
+        "serve": "php -S 127.0.0.1:8080 -t public/"
+    },
+    "authors": [
+        {
+            "name": "Junior",
+            "email": "duartejusanca@gmail.com"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "app/models/model.php",
+            "app/models/post.php",
+            "app/helpers/view.php",
+            "app/controllers/post.php"
+        ]
+    },
+    "require": {
+        "nesbot/carbon": "^2.41",
+        "vlucas/phpdotenv": "^5.2"
+    },
+    "require-dev": {
+        "filp/whoops": "^2.9"
+    }
+}
