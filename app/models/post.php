@@ -15,20 +15,42 @@ function getPostById($id)
     $statement = $db->prepare('SELECT * FROM posts WHERE id = :id');
     $statement->execute(['id' => $_GET['id']]);
     $post = $statement->fetchObject();
-    $post->created_at = ucfirst(Carbon::parse($post->created_at)->locale('fr_FR')->diffForHumans());
+    $post->created_at = ucfirst(Carbon::parse($post->created_at, 'Europe/Paris')->locale('fr_FR')->diffForHumans());
     return $post;
 }
-/*
-function AddArticle($post){
 
+function addPost(){
     $db = dbConnect();
-    $statement = $db->prepare('INSERT INTO posts (created_at, title, body) VALUES (:created, :title, :body, )');
-    $post = $statement->execute([
-        'created_at' => $post['created_at'],
-        'title' => $post['title'],
-        'body' => $post['body'],
+    $statement = $db->prepare('INSERT INTO posts (title, body) VALUES ( :title, :body)');
+    $poststore = $statement->execute([
+        'title' => $_POST['title'],
+        'body' => $_POST['body'],
     ]);
-    return $post;
+    return $poststore;
 }
 
-*/
+function delPost(){
+    $db = dbConnect();
+    $id = $_GET['id'];
+    $sql = 'DELETE FROM posts WHERE id=:id';
+    $statement = $db->prepare($sql);
+    if ($statement->execute([':id' => $id])){
+        header("Location: /articles");
+    }
+}
+
+function editPost(){
+    $db = dbConnect();
+    if (isset($_POST['title']) && isset($_POST['body'])){
+
+    $title = $_POST['title'];
+    $body = $_POST['body'];
+
+    $id = $_GET['id'];
+    $sql = 'UPDATE posts SET title=:title, body=:body WHERE id=$id';
+    $statement = $db->prepare($sql);
+    if ($statement->execute([':title' => $title, ':body' => $body, ':id' => $id])){
+        header("Location: /articles");
+    }
+  }
+}

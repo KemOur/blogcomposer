@@ -3,7 +3,9 @@
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    if($uri == "/"){}
+    if($uri == "/"){
+        homeAccueil();
+    }
         elseif ($uri == "/articles"){
         postIndex();
     }   elseif ($uri == "/articles/show" and isset($_GET['id'])){
@@ -11,14 +13,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     }   elseif ($uri == "/articles/create"){
         postCreate();
         }
-        elseif ($uri == "/articles" and isset($_POST['id'])){
+        elseif ($uri == "/articles/delete" and isset ($_GET['id'])){
+        postDestroy();
+        }
+        elseif ($uri == "/articles/edit" and isset ($_GET['id'])){
+        postEdit();
+        }
+}   elseif ($_SERVER['REQUEST_METHOD'] == "POST"){
+    if ($uri == "/articles"){
         postStore();
-    }    elseif ($uri == "/articles/edit" and isset($_GET['id'])){
-        postEdit($id);
-    }    elseif ($uri == "/articles/edit" and isset($_POST['id'])){
+    }elseif ($uri =="/articles/edit"){
         postUpdate();
-    }   elseif ($uri == "/articles/delete" and isset($_POST['id'])){
-        postDestroy(id);
     }
     else {
         http_response_code(404);
