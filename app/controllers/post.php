@@ -1,48 +1,47 @@
 <?php
-
+//affichage des articles
 function postIndex()
 {
     $posts = getAllPosts();
     view('articles/articles.php', compact('posts'));
 }
-
-function homeAccueil(){
-
-}
-
-
+//affichage du formullaire de création
 function postCreate()
 {
     $posts = getAllPosts();
-    view('articles/create.php', compact('posts'));
+    view('/articles/create.php', compact('posts'));
 }
 
+//ajouter
 function postStore()
 {
     //print_r($_POST);
     //die();
+
     addPost();
     $posts = getAllPosts();
     view('articles/articles.php', compact('posts'));
 }
 
+//suppression
 function postDestroy(){
     delPost();
+    header('Location: /articles');
+
 }
 
-//edit function début
-function postEdit()
-{
-    $id = $_GET['id'];
-    view('articles/edit.php', compact('id'));
-}
-
-function postUpdate(){
-    editPost();
+//début edition
+function postEdit(){
     $post = getPostById($_GET['id']);
-    view('articles/articles.php', compact('post'));
+    view('/articles/edit.php', compact('post'));
+}
+//Update, rédirection vers l'article
+function postUpdate($id){
+    editPost($id);
+        header("Location: /articles/show?id=$id");
 }
 
+//affichage un article
 function postShow()
 {
     if (empty($_GET['id'])) {

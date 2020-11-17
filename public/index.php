@@ -10,5 +10,3 @@ $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
 $whoops->register();
 
 require __DIR__ . "/../app/router.php"; ?>
-<?php require __DIR__ . "/../views/layouts/header.php"; ?>
-<?php require __DIR__ . "/../views/articles/index.php"; ?>

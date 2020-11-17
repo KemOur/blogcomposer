@@ -3,10 +3,7 @@
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    if($uri == "/"){
-        homeAccueil();
-    }
-        elseif ($uri == "/articles"){
+    if($uri == "/articles"){
         postIndex();
     }   elseif ($uri == "/articles/show" and isset($_GET['id'])){
         postShow();
@@ -23,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     if ($uri == "/articles"){
         postStore();
     }elseif ($uri =="/articles/edit"){
-        postUpdate();
+        postUpdate($_GET['id']);
     }
     else {
         http_response_code(404);

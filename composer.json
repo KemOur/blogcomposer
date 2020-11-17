@@ -1,7 +1,7 @@
 {
     "name": "user/blogcomposer",
     "scripts": {
-        "serve": "php -S 127.0.0.1:8080 -t public/"
+        "serve": "php -S 127.0.0.1:8080/articles -t public/"
     },
     "authors": [
         {

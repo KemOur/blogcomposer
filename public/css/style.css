@@ -22,14 +22,17 @@ a:hover {
 
 header {
   color: white;
-  background: url("/img/james-harrison-vpOeXr5wmR4-unsplash.jpg") #4b77be center
+  background: url("../img/vincent.gif") #4b77be center
   top no-repeat;
   background-size: cover;
   text-align: center;
-  padding: 10vw 2em;
+  padding: 24vw 0em;
   text-shadow: 1px 1px 5px #333;
 }
 
+.jumbotron{
+  background-color: #e9ecef;
+}
 .container {
   max-width: 70%;
   margin: auto;
@@ -45,11 +48,6 @@ ul {
 li {
   padding-left: 1em;
   text-indent: -1em;
-}
-
-li:before {
-  content: "➡️";
-  padding-right: 5px;
 }
 
 input,
