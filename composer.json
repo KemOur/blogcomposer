@@ -25,7 +25,8 @@
         "respect/validation": "^2.1",
         "robmorgan/phinx": "^0.12.4",
         "erusev/parsedown": "^1.7",
-        "fzaninotto/faker": "^1.9"
+        "fzaninotto/faker": "^1.9",
+        "hassankhan/config": "^2.1"
     },
     "require-dev": {
         "filp/whoops": "^2.9"

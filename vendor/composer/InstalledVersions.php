@@ -19,7 +19,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '98e9ba5d560e5edebb3cf5a1dd11393310b3b7d4',
+    'reference' => 'da90d2d2b060a9afa392ac3e52bc10c94da395b0',
     'name' => 'user/blogcomposer',
   ),
   'versions' => 
@@ -95,6 +95,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '7e279d2cd5d7fbb156ce46daada972355cea27bb',
+    ),
+    'hassankhan/config' => 
+    array (
+      'pretty_version' => 'v2.1.0',
+      'version' => '2.1.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '16fa4d3320ac9bb611dda0c8ea980edb58d227c9',
     ),
     'league/plates' => 
     array (
@@ -333,7 +342,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '98e9ba5d560e5edebb3cf5a1dd11393310b3b7d4',
+      'reference' => 'da90d2d2b060a9afa392ac3e52bc10c94da395b0',
     ),
     'vlucas/phpdotenv' => 
     array (

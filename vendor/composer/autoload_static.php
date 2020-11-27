@@ -59,6 +59,10 @@ class ComposerStaticInit3b97135952ef61cd7a962a99e8e138e8
             'PhpOption\\' => 10,
             'Phinx\\' => 6,
         ),
+        'N' => 
+        array (
+            'Noodlehaus\\' => 11,
+        ),
         'L' => 
         array (
             'League\\Plates\\' => 14,
@@ -170,6 +174,10 @@ class ComposerStaticInit3b97135952ef61cd7a962a99e8e138e8
         'Phinx\\' => 
         array (
             0 => __DIR__ . '/..' . '/robmorgan/phinx/src/Phinx',
+        ),
+        'Noodlehaus\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/hassankhan/config/src',
         ),
         'League\\Plates\\' => 
         array (
