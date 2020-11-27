@@ -1,3 +1,4 @@
+<?php $Parsedown = new Parsedown() ?>
 <?php $title = "My blog"; ?>
 <?php ob_start(); ?>
     <h1>Publications</h1><br>
@@ -8,13 +9,15 @@
     </svg>
     </a>
 
+    <a href="/generate">FAKER</a>
 <?php foreach ($posts as $post) : ?>
 <div class="my-3 p-3 bg-white rounded shadow-sm">
     <div class="media text-muted pt-3">
         <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
             <div class="d-flex justify-content-between align-items-center w-100">
 
-                <a href="articles/show?id=<?= $post->id ?>"><?= $post->created_at_fr ?> - <?= $post->title ?></a>
+                <a href="articles/show?id=<?= $post->id ?>"><?= $Parsedown->text( "###".$post->title ) ?><?= $post->created_at_fr ?> </a>
+
                 <br>
                 <div style="float: right">
                 <a class="btn btn-success" href="/articles/edit?id=<?= $post->id ?>">

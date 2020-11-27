@@ -19,7 +19,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'c6e5542e6e16825512affdfbcd3e98833b87b4fe',
+    'reference' => '98e9ba5d560e5edebb3cf5a1dd11393310b3b7d4',
     'name' => 'user/blogcomposer',
   ),
   'versions' => 
@@ -60,6 +60,15 @@ private static $installed = array (
       ),
       'reference' => '302c697df8796198eae9429bb7f817cb79e6401c',
     ),
+    'erusev/parsedown' => 
+    array (
+      'pretty_version' => '1.7.4',
+      'version' => '1.7.4.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'cb17b6477dfff935958ba01325f2e8a2bfa6dab3',
+    ),
     'filp/whoops' => 
     array (
       'pretty_version' => '2.9.1',
@@ -68,6 +77,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '307fb34a5ab697461ec4c9db865b20ff2fd40771',
+    ),
+    'fzaninotto/faker' => 
+    array (
+      'pretty_version' => 'v1.9.1',
+      'version' => '1.9.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'fc10d778e4b84d5bd315dad194661e091d307c6f',
     ),
     'graham-campbell/result-type' => 
     array (
@@ -315,7 +333,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'c6e5542e6e16825512affdfbcd3e98833b87b4fe',
+      'reference' => '98e9ba5d560e5edebb3cf5a1dd11393310b3b7d4',
     ),
     'vlucas/phpdotenv' => 
     array (

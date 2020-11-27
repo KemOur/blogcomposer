@@ -29,6 +29,10 @@ function postDestroy(){
     header('Location: /articles');
 
 }
+//genere faux articles
+function postFaker(){
+    genereFaker();
+}
 
 //début edition
 function postEdit(){

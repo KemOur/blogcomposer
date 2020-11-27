@@ -5,11 +5,11 @@ use Carbon\Carbon;
 function getAllPosts()
 {
     $db = dbConnect();
-    $statement = $db->query('SELECT id, title, body, DATE_FORMAT(created_at, "%d/%m/%Y") as created_at_fr FROM posts');
+    $statement = $db->query('SELECT id, title, body, DATE_FORMAT(created_at, "%d/%m/%Y") as created_at_fr FROM posts ORDER BY ID DESC');
     return $statement->fetchAll(PDO::FETCH_OBJ);
 }
 
-function getPostById($id)
+function getPostById()
 {
     $db = dbConnect();
     $statement = $db->prepare('SELECT * FROM posts WHERE id = :id');
@@ -28,6 +28,20 @@ function addPost(){
         'body' => $_POST['body'],
     ]);
     return $poststore;
+}
+
+function genereFaker(){
+    $db = dbConnect();
+    $faker = Faker\Factory::create('fr_FR');
+    $title = $faker->catchPhrase;
+    $body = $faker->text;
+    $statement = $db->prepare('INSERT INTO posts (title, body) VALUES ( :title, :body)');
+    $statement->execute([
+        'title' => $title,
+        'body' => $body,
+    ]);
+    header('location:/articles');
+    exit();
 }
 
 function delPost(){

@@ -10,6 +10,7 @@ if (!(PHP_VERSION_ID >= 70300)) {
 
 $missingExtensions = array();
 extension_loaded('json') || $missingExtensions[] = 'json';
+extension_loaded('mbstring') || $missingExtensions[] = 'mbstring';
 extension_loaded('pcre') || $missingExtensions[] = 'pcre';
 
 if ($missingExtensions) {

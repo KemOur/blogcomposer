@@ -16,6 +16,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         elseif ($uri == "/articles/edit" and isset ($_GET['id'])){
         postEdit();
         }
+        elseif ($uri == "/generate"){
+        postFaker();
+        }
 }   elseif ($_SERVER['REQUEST_METHOD'] == "POST"){
     if ($uri == "/articles"){
         postStore();

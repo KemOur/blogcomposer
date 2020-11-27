@@ -70,6 +70,7 @@ class ComposerStaticInit3b97135952ef61cd7a962a99e8e138e8
         'F' => 
         array (
             'FastRoute\\' => 10,
+            'Faker\\' => 6,
         ),
         'D' => 
         array (
@@ -182,6 +183,10 @@ class ComposerStaticInit3b97135952ef61cd7a962a99e8e138e8
         array (
             0 => __DIR__ . '/..' . '/nikic/fast-route/src',
         ),
+        'Faker\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker',
+        ),
         'Dotenv\\' => 
         array (
             0 => __DIR__ . '/..' . '/vlucas/phpdotenv/src',
@@ -208,6 +213,16 @@ class ComposerStaticInit3b97135952ef61cd7a962a99e8e138e8
         ),
     );
 
+    public static $prefixesPsr0 = array (
+        'P' => 
+        array (
+            'Parsedown' => 
+            array (
+                0 => __DIR__ . '/..' . '/erusev/parsedown',
+            ),
+        ),
+    );
+
     public static $classMap = array (
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
@@ -223,6 +238,7 @@ class ComposerStaticInit3b97135952ef61cd7a962a99e8e138e8
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit3b97135952ef61cd7a962a99e8e138e8::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit3b97135952ef61cd7a962a99e8e138e8::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit3b97135952ef61cd7a962a99e8e138e8::$prefixesPsr0;
             $loader->classMap = ComposerStaticInit3b97135952ef61cd7a962a99e8e138e8::$classMap;
 
         }, null, ClassLoader::class);
