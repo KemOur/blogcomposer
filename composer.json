@@ -30,5 +30,8 @@
     },
     "require-dev": {
         "filp/whoops": "^2.9"
+    },
+    "config": {
+        "process-timeout": 0
     }
 }

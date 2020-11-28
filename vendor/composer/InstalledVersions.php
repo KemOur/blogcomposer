@@ -19,7 +19,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'da90d2d2b060a9afa392ac3e52bc10c94da395b0',
+    'reference' => 'fbf2cb85baf52af452bcc282bcb0b197c02bf20a',
     'name' => 'user/blogcomposer',
   ),
   'versions' => 
@@ -342,7 +342,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'da90d2d2b060a9afa392ac3e52bc10c94da395b0',
+      'reference' => 'fbf2cb85baf52af452bcc282bcb0b197c02bf20a',
     ),
     'vlucas/phpdotenv' => 
     array (

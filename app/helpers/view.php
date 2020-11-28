@@ -13,4 +13,5 @@ function view($path, $args)
     ob_start();
     require __DIR__ . "/../../views/{$path}";
     echo ob_get_clean();
+    $_SESSION = [];
 }
