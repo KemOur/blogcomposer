@@ -62,7 +62,6 @@ elseif ($_SERVER['REQUEST_METHOD'] == "POST") {
     if (!empty($_POST['_method'])) {
         $_SERVER['REQUEST_METHOD'] = strtoupper($_POST['_method']);
     }
-
     if ($uri == "/articles") {
         return postStore();
     } elseif ($uri == "/articles/edit" and isset ($_GET['id'])) {
@@ -75,9 +74,11 @@ elseif ($_SERVER['REQUEST_METHOD'] == "POST") {
         if ($uri == "/articles/delete" and isset ($_GET['id'])) {
             return postDestroy();
         }
+    }else{
+        http_response_code(405);
+        echo "<html><body>Method not allowed</body></html>";
+        return;
     }
 
-    http_response_code(405);
-    echo "<html><body>Method not allowed</body></html>";
-    return;
+
 }
