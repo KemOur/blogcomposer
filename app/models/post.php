@@ -51,12 +51,12 @@ function delPost(){
 }
 
 function editPost($id){
-        $db = dbConnect();
-        $statement= $db->prepare('UPDATE posts SET title = :title, body = :body WHERE id = :id');
-        return $statement->execute([
-            "title" => $_POST['title'],
-            "body"=> $_POST['body'],
-            "id" => $id
-        ]);
+    $db = dbConnect();
+    $statement= $db->prepare('UPDATE posts SET title = :title, body = :body WHERE id = :id');
+    return $statement->execute([
+        "title" => $_POST['title'],
+        "body"=> $_POST['body'],
+        "id" => $id
+    ]);
 
 }

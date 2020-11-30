@@ -42,7 +42,7 @@ function postEdit(){
 //Update, rédirection vers l'article
 function postUpdate($id){
     editPost($id);
-        header("Location: /articles/show?id=$id");
+    header("Location: /articles/show?id=$id");
 }
 
 //affichage un article
