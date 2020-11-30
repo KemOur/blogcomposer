@@ -13,11 +13,9 @@
                         <label>Titre de l'article :</label>
                         <div class="col-7">
                             <!--succes si different de vide-->
-                            <?php if(!empty($post)): ?>
                             <div class="alert alert-succes">
                             <input value="<?=$post->title?>" style="width: 950px" type="text" class="form-control" name="title" id="title">
                             </div>
-                            <?php endif;?>
                             <br>
                             <div class="form-group">
                                 <label>L'article :</label>

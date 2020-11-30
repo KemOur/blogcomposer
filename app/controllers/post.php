@@ -44,7 +44,9 @@ function postUpdate($id){
     editPost($id);
     header("Location: /articles/show?id=$id");
 }
-
+function NotFoundHandler(){
+    view('/404.php', compact(null));
+}
 //affichage un article
 function postShow()
 {

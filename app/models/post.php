@@ -58,5 +58,4 @@ function editPost($id){
         "body"=> $_POST['body'],
         "id" => $id
     ]);
-
 }
