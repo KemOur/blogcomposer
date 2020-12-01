@@ -4,10 +4,12 @@
 $dispatcher = FastRoute\simpleDispatcher(function (FastRoute\RouteCollector $route)
 {
     $route->get('/articles', 'postIndex');
+    $route->get('/generate', 'postFaker');
     $route->get('/articles/show/{id:[0-9]+}', 'postShow');
     $route->get('/articles/create', 'postCreate');
     $route->get('/articles/edit/{id:[0-9]+}', 'postEdit');
     $route->post('/articles', 'postStore');
+
     $route->put('/articles/edit', 'postUpdate');
     $route->delete('/articles/delete/{id:[0-9]+}', 'postDestroy');
 });
@@ -56,7 +58,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                 return postDestroy();
             }
         }
-
             http_response_code(405);
             echo "<html><body>Method not allowed</body></html>";
             return;

@@ -1,6 +1,9 @@
     <?php
     require __DIR__ . '/../routes/web.php';
 
+    if(!empty($_POST['_method'])){
+        $_SERVER['REQUEST_METHOD'] = $_POST['_method'];
+    }
     $httpMethod = $_SERVER['REQUEST_METHOD'];
     $uri = $_SERVER['REQUEST_URI'];
 
@@ -26,9 +29,8 @@
             break;
 
         case FastRoute\Dispatcher::FOUND:
-            $handler = $routeInfo[1];
-            $vars = $routeInfo[2];
-            call_user_func_array($handler, $vars);
+
+            call_user_func_array($routeInfo[1], $routeInfo[2]);
             break;
     }
 

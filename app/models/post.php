@@ -44,10 +44,12 @@ function genereFaker(){
     exit();
 }
 
-function delPost(){
+function delPost($id){
     $db = dbConnect();
     $statement= $db->prepare('DELETE FROM posts WHERE id = :id');
-    return $statement->execute([ "id" => $_GET['id']]);
+    return $statement->execute([
+        "id" => $id
+    ]);
 }
 
 function editPost($id){

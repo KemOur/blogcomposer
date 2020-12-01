@@ -24,8 +24,8 @@ function postStore()
 }
 
 //suppression
-function postDestroy(){
-    delPost();
+function postDestroy($id){
+    delPost($id);
     header('Location: /articles');
 
 }
@@ -47,6 +47,10 @@ function postUpdate($id){
 function NotFoundHandler(){
     view('/404.php', compact(null));
 }
+
+
+
+
 //affichage un article
 function postShow($id)
 {
