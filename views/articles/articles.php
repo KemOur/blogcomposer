@@ -1,6 +1,6 @@
+<?php $this->layout('layouts/default', ['title' => 'My blog']) ?>
 <?php $Parsedown = new Parsedown() ?>
-<?php $title = "My blog"; ?>
-<?php ob_start(); ?>
+
     <h1>Publications</h1><br>
     <a href="/articles/create">
     <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-plus-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -37,6 +37,3 @@
     </div>
 </div>
 <?php endforeach ?>
-
-<?php $content = ob_get_clean(); ?>
-<?php require __DIR__ . "/../layouts/default.php"; ?>

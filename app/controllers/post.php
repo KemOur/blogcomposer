@@ -3,13 +3,13 @@
 function postIndex()
 {
     $posts = getAllPosts();
-    view('articles/articles.php', compact('posts'));
+    view('articles/articles', compact('posts'));
 }
 //affichage du formullaire de création
 function postCreate()
 {
     $posts = getAllPosts();
-    view('/articles/create.php', compact('posts'));
+    view('/articles/create', compact('posts'));
 }
 
 //ajouter
@@ -20,7 +20,7 @@ function postStore()
 
     addPost();
     $posts = getAllPosts();
-    view('articles/articles.php', compact('posts'));
+    view('articles/articles', compact('posts'));
 }
 
 //suppression
@@ -37,7 +37,7 @@ function postFaker(){
 //début edition
 function postEdit($id){
     $post = getPostById($id);
-    view('/articles/edit.php', compact('post'));
+    view('/articles/edit', compact('post'));
 }
 //Update, rédirection vers l'article
 function postUpdate($id){
@@ -67,5 +67,5 @@ function postShow($id)
         return;
     }
 
-    view('articles/show.php', compact('post'));
+    view('articles/show', compact('post'));
 }

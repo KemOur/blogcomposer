@@ -1,3 +1,5 @@
+<?php $this->layout('layouts/default', ['title' => 'My blog']) ?>
+
 <?= $title = ''?>
 <?= $content = ''?>
 <a href="/articles">
@@ -33,5 +35,3 @@
         </div>
     </div>
 </form>
-<?php $content = ob_get_clean(); ?>
-<?php require __DIR__ . "/../../views/layouts/default.php"; ?>

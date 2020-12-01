@@ -1,5 +1,10 @@
 <?php
 
+function view($path, $args){
+    $templates = new League\Plates\Engine(__DIR__ . '/../../views');
+    echo $templates->render($path, $args);
+}
+/*
 function view($path, $args)
 {
     $headers = getallheaders();
@@ -15,3 +20,4 @@ function view($path, $args)
     echo ob_get_clean();
     $_SESSION = [];
 }
+*/

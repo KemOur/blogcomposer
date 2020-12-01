@@ -1,4 +1,4 @@
-<?php $title = "My blog"; ?>
+<?php $this->layout('layouts/default', ['title' => 'My blog']) ?>
 
 <a href="/articles">
 <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-arrow-left-short" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -30,6 +30,3 @@
     </div>
 </div>
 </form>
-
-<?php $content = ob_get_clean(); ?>
-<?php require __DIR__ . "/../../views/layouts/default.php"; ?>
