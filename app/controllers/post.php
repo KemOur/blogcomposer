@@ -1,4 +1,7 @@
 <?php
+
+use Respect\Validation\Validator as v;
+use Respect\Validation\Exceptions\NestedValidationException;
 //affichage des articles
 function postIndex()
 {
@@ -17,6 +20,17 @@ function postStore()
 {
     //print_r($_POST);
     //die();
+    $userValidator = v::attribute('title', v::stringType()->length(1, 255))
+        ->attribute('body', v::stringType()->length(3));
+
+    $post = (object) $_POST;
+
+    try {
+        $userValidator->assert($post);
+    } catch (NestedValidationException $exception) {
+        print_r($exception->getMessage());
+        die();
+    }
 
     addPost();
     $posts = getAllPosts();
