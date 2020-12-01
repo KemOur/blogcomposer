@@ -29,7 +29,6 @@
             break;
 
         case FastRoute\Dispatcher::FOUND:
-
             call_user_func_array($routeInfo[1], $routeInfo[2]);
             break;
     }
@@ -65,11 +64,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     }
 }
 
-elseif ($_SERVER['REQUEST_METHOD'] == "POST") {
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
     //override
     if (!empty($_POST['_method'])) {
         $_SERVER['REQUEST_METHOD'] = strtoupper($_POST['_method']);
     }
+
     if ($uri == "/articles") {
         return postStore();
     } elseif ($uri == "/articles/edit" and isset ($_GET['id'])) {
@@ -90,4 +90,3 @@ elseif ($_SERVER['REQUEST_METHOD'] == "POST") {
 }
 
 */
-

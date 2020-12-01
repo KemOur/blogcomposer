@@ -35,21 +35,21 @@ function postFaker(){
 }
 
 //début edition
-function postEdit(){
-    $post = getPostById($_GET['id']);
+function postEdit($id){
+    $post = getPostById($id);
     view('/articles/edit.php', compact('post'));
 }
 //Update, rédirection vers l'article
 function postUpdate($id){
     editPost($id);
-    header("Location: /articles/show?id=$id");
+    header("Location: /articles");
+    //header("Location: /articles/show/$id");
 }
+
+
 function NotFoundHandler(){
     view('/404.php', compact(null));
 }
-
-
-
 
 //affichage un article
 function postShow($id)
