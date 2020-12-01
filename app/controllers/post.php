@@ -48,15 +48,15 @@ function NotFoundHandler(){
     view('/404.php', compact(null));
 }
 //affichage un article
-function postShow()
+function postShow($id)
 {
-    if (empty($_GET['id'])) {
+    if (empty($id)) {
         http_response_code(400);
         echo "<html><body>Bad request</body></html>";
         return;
     }
 
-    $post = getPostById($_GET['id']);
+    $post = getPostById($id);
     if (!$post) {
         http_response_code(404);
         echo "<html><body>Post not found</body></html>";

@@ -9,11 +9,11 @@ function getAllPosts()
     return $statement->fetchAll(PDO::FETCH_OBJ);
 }
 
-function getPostById()
+function getPostById($id)
 {
     $db = dbConnect();
     $statement = $db->prepare('SELECT * FROM posts WHERE id = :id');
-    $statement->execute(['id' => $_GET['id']]);
+    $statement->execute(['id' => $id]);
     $post = $statement->fetchObject();
     $post->created_at = ucfirst(Carbon::parse($post->created_at, 'Europe/Paris')->locale('fr_FR')->diffForHumans());
     $post->updated_at = ucfirst(Carbon::parse($post->updated_at, 'Europe/Paris')->locale('fr_FR')->diffForHumans());
