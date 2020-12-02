@@ -20,8 +20,8 @@ function postStore()
 {
     //print_r($_POST);
     //die();
-    $userValidator = v::attribute('title', v::stringType()->length(1, 255))
-        ->attribute('body', v::stringType()->length(3));
+    $userValidator = v::attribute('title', v::stringType()->length(5, 100))
+        ->attribute('body', v::stringType()->length(5, 255));
 
     $post = (object) $_POST;
 
@@ -55,15 +55,28 @@ function postEdit($id){
 }
 //Update, rédirection vers l'article
 function postUpdate($id){
+    $userValidator = v::attribute('title', v::stringType()->length(5, 100))
+        ->attribute('body', v::stringType()->length(5, 255));
+
+    $post = (object) $_POST;
+
+    try {
+        $userValidator->assert($post);
+    } catch (NestedValidationException $exception) {
+        print_r($exception->getMessage());
+        die();
+    }
     editPost($id);
     header("Location: /articles");
     //header("Location: /articles/show/$id");
 }
 
 
+// page error 404.php, a styliser
 function NotFoundHandler(){
     view('/404.php', compact(null));
 }
+
 
 //affichage un article
 function postShow($id)
