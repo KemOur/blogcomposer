@@ -3,19 +3,8 @@ declare(strict_types=1);
 
 use Phinx\Migration\AbstractMigration;
 
-final class CreatePostsTable extends AbstractMigration
+final class MyNewMigration extends AbstractMigration
 {
-
-    /*
-    public function change():void{
-        $table = $this->table('articles');
-        $table->addColumn('vreated_at', 'datetime')
-            ->addColum('updated_at', 'datetime')
-            ->addColum('title', 'string')
-            ->addColum('body', 'text')
-            ->create();
-
-    }*/
     /**
      * Change Method.
      *
@@ -27,8 +16,13 @@ final class CreatePostsTable extends AbstractMigration
      * Remember to call "create()" or "update()" and NOT "save()" when working
      * with the Table class.
      */
-    public function change() : void
+    public function change()
     {
-
+        $table = $this->table('post_migration');
+        $table->addColumn('user_id', 'integer')
+            ->addColumn('updated_at', 'datetime', ['default' => 'CURRENT_TIMESTAMP'], ['update' => 'CURRENT_TIMESTAMP'])
+            ->addColumn('title', 'string')
+            ->addColumn('body', 'text')
+            ->create();
     }
 }
