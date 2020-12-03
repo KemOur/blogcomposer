@@ -18,7 +18,7 @@
 
             // ... 404 Not Found
             http_response_code(404);
-            echo '<h2>Page Not found </h2>';
+            header('Location: /articles');
             break;
         case FastRoute\Dispatcher::METHOD_NOT_ALLOWED:
             $allowedMethods = $routeInfo[1];

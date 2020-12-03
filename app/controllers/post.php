@@ -1,7 +1,7 @@
 <?php
-
 use Respect\Validation\Validator as v;
 use Respect\Validation\Exceptions\NestedValidationException;
+
 //affichage des articles
 function postIndex()
 {
@@ -18,29 +18,40 @@ function postCreate()
 //ajouter
 function postStore()
 {
+
     //print_r($_POST);
     //die();
     $userValidator = v::attribute('title', v::stringType()->length(5, 100))
         ->attribute('body', v::stringType()->length(5, 255));
+    //v::countryCode('alpha-2')->validate('FR');
+
 
     $post = (object) $_POST;
 
     try {
         $userValidator->assert($post);
-    } catch (NestedValidationException $exception) {
-        print_r($exception->getMessage());
-        die();
-    }
 
-    addPost();
+
+    } catch (NestedValidationException $exception) {
+        $_SESSION['error'] = implode(', ', $exception->getMessages());
+        $_SESSION['old'] = $_POST;
+        header('Location: /articles/create');
+        return;
+    }
     $posts = getAllPosts();
-    view('articles/articles', compact('posts'));
+    addPost();
+    $_SESSION['success'] = "L'article '{$_POST['title']}' a bien été créé";
+    header('Location: /articles');
+    return;
 }
 
 //suppression
 function postDestroy($id){
+
     delPost($id);
+    $_SESSION['success'] = "L'article '#{$id}' a bien été supprimé";
     header('Location: /articles');
+    return;
 
 }
 //genere faux articles
@@ -50,6 +61,7 @@ function postFaker(){
 
 //début edition
 function postEdit($id){
+
     $post = getPostById($id);
     view('/articles/edit', compact('post'));
 }
@@ -63,14 +75,12 @@ function postUpdate($id){
     try {
         $userValidator->assert($post);
     } catch (NestedValidationException $exception) {
-        print_r($exception->getMessage());
-        die();
+        $_SESSION['success'] = "L'article #{$id} a bien été modifié";
     }
     editPost($id);
-    header("Location: /articles");
-    //header("Location: /articles/show/$id");
+    header("Location: /articles/show/$id");
+    return;
 }
-
 
 // page error 404.php, a styliser
 function NotFoundHandler(){
