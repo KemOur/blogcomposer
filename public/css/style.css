@@ -22,8 +22,7 @@ a:hover {
 
 header {
   color: white;
-  background: url("../img/v.gif") #4b77be center
-  top no-repeat;
+  background: url("../img/v.gif") #4b77be center top no-repeat;
   background-size: cover;
   text-align: center;
   padding: 24vw 0em;

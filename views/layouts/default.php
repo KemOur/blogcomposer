@@ -14,6 +14,11 @@
     <h1>Skateborderzz</h1>
 </header>
 <div class="container">
+    <?php if(isset($_SESSION['alert']['content'])): ?>
+        <?php foreach($_SESSION['alert']['content'] as $alert): ?>
+            <div class="alert alert-<?= $_SESSION['alert']['success'] ? 'success' : 'danger' ?>"> <?= $alert ?></div>
+        <?php endforeach; ?>
+    <?php endif; ?>
     <?=$this->section('content')?>
 </div>
 </body>

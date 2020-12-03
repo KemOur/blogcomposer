@@ -8,6 +8,7 @@ function postIndex()
     $posts = getAllPosts();
     view('articles/articles', compact('posts'));
 }
+
 //affichage du formullaire de création
 function postCreate()
 {
@@ -52,8 +53,8 @@ function postDestroy($id){
     $_SESSION['success'] = "L'article '#{$id}' a bien été supprimé";
     header('Location: /articles');
     return;
-
 }
+
 //genere faux articles
 function postFaker(){
     genereFaker();
@@ -75,9 +76,13 @@ function postUpdate($id){
     try {
         $userValidator->assert($post);
     } catch (NestedValidationException $exception) {
-        $_SESSION['success'] = "L'article #{$id} a bien été modifié";
+        $_SESSION['error'] = implode(', ', $exception->getMessages());
+        $_SESSION['old'] = $_POST;
+        header('Location: /articles/create');
+        return;
     }
     editPost($id);
+    $_SESSION['success'] = "L'article '{$_POST['title']}' a bien été créé";
     header("Location: /articles/show/$id");
     return;
 }
@@ -86,7 +91,6 @@ function postUpdate($id){
 function NotFoundHandler(){
     view('/404.php', compact(null));
 }
-
 
 //affichage un article
 function postShow($id)
