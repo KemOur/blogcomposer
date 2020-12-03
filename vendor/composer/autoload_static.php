@@ -18,6 +18,7 @@ class ComposerStaticInit3b97135952ef61cd7a962a99e8e138e8
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
         '948ad5488880985ff1c06721a4e447fe' => __DIR__ . '/..' . '/cakephp/utility/bootstrap.php',
         '2df68f9e79c919e2d88506611769ed2e' => __DIR__ . '/..' . '/respect/stringifier/src/stringify.php',
+        'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
         '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
         '5288ec829dcee8bf2788f85bf2ee0d31' => __DIR__ . '/../..' . '/app/models/model.php',
         'b4a5331d48d5e7b316a90c75b2af03c7' => __DIR__ . '/../..' . '/app/models/post.php',

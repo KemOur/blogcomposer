@@ -9,10 +9,10 @@ $dispatcher = FastRoute\simpleDispatcher(function (FastRoute\RouteCollector $rou
     $route->get('/articles/create', 'postCreate');
     $route->get('/articles/edit/{id:[0-9]+}', 'postEdit');
     $route->post('/articles', 'postStore');
-    $route->post('/articles/edit/{id:[0-9]+}', 'postUpdate');
+    //$route->post('/articles/edit/{id:[0-9]+}', 'postUpdate');
 
-    //$route->put('/articles/edit/{id:[0-9]+}', 'postUpdate');
-    $route->delete('/articles/delete/{id:[0-9]+}', 'postDestroy');
+    $route->addRoute(['POST', 'PUT'],'/articles/edit/{id:[0-9]+}', 'postUpdate');
+    $route->addRoute(['POST','DELETE'],'/articles/delete/{id:[0-9]+}', 'postDestroy');
 });
 
 
