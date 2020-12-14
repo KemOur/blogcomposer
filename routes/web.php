@@ -17,7 +17,7 @@ $dispatcher = FastRoute\simpleDispatcher(function (FastRoute\RouteCollector $rou
 
 
 /*
-manual router with metode override;
+ * method_override:
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
